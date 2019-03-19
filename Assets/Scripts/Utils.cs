@@ -44,6 +44,20 @@ namespace ExtraTools
         }
 
 #if UNITY_EDITOR
+
+        /// <summary>
+        /// Credit goes to FreCre (https://assetstore.unity.com/publishers/7617).
+        /// Stumbled across this shortcut on twitter and decided to add
+        /// to the Extra Tools. The original free asset pakcage created by FreCre can be
+        /// downloaded from the Asset Store: https://assetstore.unity.com/packages/tools/easyshortcutlockinspector-23579
+        /// </summary>
+        [MenuItem("Extra Tools/Toggle Inspector Lock %l")]
+        private static void ToggleInspectorLock()
+        {
+            ActiveEditorTracker.sharedTracker.isLocked = !ActiveEditorTracker.sharedTracker.isLocked;
+            ActiveEditorTracker.sharedTracker.ForceRebuild();
+        }
+
         /// <summary>
         /// Credit goes to KirillKuzyk from answers.unity.com.
         /// Got this from here: https://answers.unity.com/questions/707636/clear-console-window.html
@@ -61,6 +75,8 @@ namespace ExtraTools
         /// <summary>
         /// Credit goes to coeing from answers.unity.com
         /// Got this from here: https://answers.unity.com/questions/43422/how-to-implement-show-in-explorer.html
+        /// PS: A similar function was added to the Shortcut editor in the 2019.1. Still, this
+        /// can be used to open a specific folder (or an asset), not the one you clicked on in the Projects tab
         /// </summary>
         [MenuItem("Extra Tools/Open Project Folder %e")] // CTRL + E
         public static void ShowExplorer()

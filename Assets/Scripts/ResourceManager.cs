@@ -45,12 +45,21 @@ namespace ExtraTools
             {
                 for (int i = 0; i < pool.Count; i++)
                 {
-                    if(!pool[i].activeInHierarchy)
+                    if (!pool[i].activeInHierarchy)
                     {
                         Destroy(pool[i]);
                         pool.Remove(pool[i]);
                     }
                 }
+            }
+
+            /// <summary>
+            /// Disables all objects and moves them under the pool
+            /// </summary>
+            public void RemoveAll()
+            {
+                for (int i = 0; i < pool.Count; i++)
+                    ResourceManager.Remove(pool[i]);
             }
 
             /// <summary>
@@ -68,11 +77,11 @@ namespace ExtraTools
             /// Instantiates new objects to the pool
             /// </summary>
             /// <param name="count">Number of objects to prepare</param>
-            public void Prepare(int count = 0)
+            public void Prepare(int count = 1)
             {
                 for (int i = 0; i < count; i++)
                 {
-                    pool.Add(Instantiate(prefab));
+                    pool.Add(Instantiate(prefab, Pool));//Instantiate under the Pool so the Awake() is not invoked
                     pool[pool.Count - 1].SetActive(false);
                 }
             }
@@ -80,12 +89,15 @@ namespace ExtraTools
 
         //A transform to store inactive objects
         private static Transform pool;
-        private static Transform Pool
+        public static Transform Pool
         {
             get
             {
                 if (!pool)
+                {
                     pool = new GameObject("Pool").transform;
+                    pool.gameObject.SetActive(false);
+                }
 
                 return pool;
             }

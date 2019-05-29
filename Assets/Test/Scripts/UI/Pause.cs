@@ -1,26 +1,29 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Pause : MonoBehaviour
+namespace ExtraTools
 {
-    [SerializeField]
-    private Button resume;
-    [SerializeField]
-    private Button mainMenu;
-
-    private void Start()
+    public class Pause : MonoBehaviour
     {
-        resume.onClick.AddListener(OnResume);
-        mainMenu.onClick.AddListener(OnMainMenu);
-    }
+        [SerializeField]
+        private Button resume;
+        [SerializeField]
+        private Button mainMenu;
 
-    private void OnResume()
-    {
-        UIManager.Instance.SetWindow(Window.InGame);
-    }
+        private void Start()
+        {
+            resume.onClick.AddListener(OnResume);
+            mainMenu.onClick.AddListener(OnMainMenu);
+        }
 
-    private void OnMainMenu()
-    {
-        UIManager.Instance.SetWindow(Window.MainMenu);
+        private void OnResume()
+        {
+            UIManager.Instance.SetWindow(Window.InGame);
+        }
+
+        private void OnMainMenu()
+        {
+            UIManager.Instance.SetWindow(Window.MainMenu);
+        }
     }
 }

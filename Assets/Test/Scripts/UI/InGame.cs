@@ -1,18 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class InGame : MonoBehaviour
+namespace ExtraTools
 {
-    [SerializeField]
-    private Button pause;
-
-    private void Start()
+    public class InGame : MonoBehaviour
     {
-        pause.onClick.AddListener(OnPause);
-    }
+        [SerializeField]
+        private Button pause;
 
-    private void OnPause()
-    {
-        UIManager.Instance.SetWindow(Window.Pause);
+        private void Start()
+        {
+            pause.onClick.AddListener(OnPause);
+        }
+
+        private void OnPause()
+        {
+            UIManager.Instance.SetWindow(Window.Pause);
+        }
     }
 }

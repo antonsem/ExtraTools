@@ -1,18 +1,41 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+namespace ExtraTools
 {
-    [SerializeField]
-    private Button newGame;
-
-    private void Start()
+    public class MainMenu : MonoBehaviour
     {
-        newGame.onClick.AddListener(OnStartGame);
-    }
+        [SerializeField]
+        private Button newGame;
+        [SerializeField]
+        private Button sendMessage;
+        [SerializeField]
+        private Button sendFiveMessages;
+        [SerializeField]
+        private Sprite messageSprite;
 
-    private void OnStartGame()
-    {
-        UIManager.Instance.SetWindow(Window.InGame);
+        private void Start()
+        {
+            newGame.onClick.AddListener(OnStartGame);
+            sendMessage.onClick.AddListener(SendMessage);
+            sendFiveMessages.onClick.AddListener(SendFiveMessages);
+        }
+
+        private void OnStartGame()
+        {
+            UIManager.Instance.SetWindow(Window.InGame);
+        }
+
+        private void SendMessage()
+        {
+            UIManager.Instance.PopUpMessage("This is a generic warning message. You can click on any button...",
+                null, () => Debug.Log("Yes"), () => Debug.Log("No"), () => Debug.Log("Cancel"), messageSprite);
+        }
+
+        private void SendFiveMessages()
+        {
+            for (int i = 0; i < 5; i++)
+                UIManager.Instance.PopUpMessage("message " + i);
+        }
     }
 }

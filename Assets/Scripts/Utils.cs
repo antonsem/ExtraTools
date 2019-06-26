@@ -84,6 +84,14 @@ namespace ExtraTools
             string path = Directory.GetParent(Application.dataPath).FullName;
             EditorUtility.RevealInFinder(path);
         }
+
+        public static object GetValue(this SerializedProperty property)
+        {
+            object obj = property.serializedObject.targetObject;
+            Type type = obj.GetType();
+            FieldInfo field = type.GetField(property.propertyPath, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+            return field.GetValue(obj);
+        }
 #endif
     }
 }

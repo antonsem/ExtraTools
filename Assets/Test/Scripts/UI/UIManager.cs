@@ -23,6 +23,9 @@ namespace ExtraTools
         [SerializeField]
         private PopUp popUp;
 
+        [SerializeField, ReadOnly]
+        protected float asd = 213;
+
         /// <summary>
         /// Set a specific UI window
         /// </summary>

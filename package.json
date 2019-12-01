@@ -1,7 +1,7 @@
 {
-    "name": "com.antonsem.extratools",
+    "name": "com.AntonSem.ExtraTools",
     "displayName": "Extra Tools",
-    "version": "1.0.0",
+    "version": "1.0.*",
     "unity": "2019.1",
     "description": "A package with some shortcuts and code snippets that I find usefuls. \n\nTo find out more, click the \"View Documentation\" link.",
     "keywords": [],

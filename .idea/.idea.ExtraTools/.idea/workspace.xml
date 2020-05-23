@@ -21,18 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0c77dbd7-7c6e-438f-9409-c039374e2e29" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PopUp.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PopUp.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/RequiredFieldDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/RequiredFieldDrawer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PopUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PopUp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RequiredField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RequiredField.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Test/Scenes/TestUI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Scenes/TestUI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Scripts/TestGetComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Scripts/TestGetComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Test/Scripts/UI/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Scripts/UI/MainMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Test/Scripts/UI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Scripts/UI/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/Packages-Update.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/Packages-Update.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +94,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590260111759</updated>
-      <workItem from="1590260115093" duration="3084000" />
+      <workItem from="1590260115093" duration="3641000" />
     </task>
     <servers />
   </component>

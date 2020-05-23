@@ -37,9 +37,9 @@ namespace ExtraTools
             pause.gameObject.SetActive(window == Window.Pause);
         }
 
-        public void PopUpMessage(string msg, UnityAction ok = null, UnityAction yes = null, UnityAction no = null, UnityAction cancel = null, Sprite img = null)
+        public void PopUpMessage(string msg, Sprite img = null, params MessageButton[] buttons)
         {
-            popUp.Register(msg, ok, yes, no, cancel, img);
+            popUp.Register(msg, img, buttons);
         }
     }
 }

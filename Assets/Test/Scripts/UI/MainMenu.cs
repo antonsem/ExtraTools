@@ -5,14 +5,10 @@ namespace ExtraTools
 {
     public class MainMenu : MonoBehaviour
     {
-        [SerializeField]
-        private Button newGame;
-        [SerializeField]
-        private Button sendMessage;
-        [SerializeField]
-        private Button sendFiveMessages;
-        [SerializeField]
-        private Sprite messageSprite;
+        [SerializeField] private Button newGame;
+        [SerializeField] private Button sendMessage;
+        [SerializeField] private Button sendFiveMessages;
+        [SerializeField] private Sprite messageSprite;
 
         private void Start()
         {
@@ -21,21 +17,28 @@ namespace ExtraTools
             sendFiveMessages.onClick.AddListener(SendFiveMessages);
         }
 
-        private void OnStartGame()
+        private static void OnStartGame()
         {
             UIManager.Instance.SetWindow(Window.InGame);
         }
 
         private void SendMessage()
         {
+            MessageButton[] buttons =
+            {
+                new MessageButton("Yes", () => Debug.Log("Yes")),
+                new MessageButton("No", () => Debug.Log("No")),
+                new MessageButton("Cancel", () => Debug.Log("Cancel"))
+            };
+            
             UIManager.Instance.PopUpMessage("This is a generic warning message. You can click on any button...",
-                null, () => Debug.Log("Yes"), () => Debug.Log("No"), () => Debug.Log("Cancel"), messageSprite);
+                messageSprite, buttons);
         }
 
-        private void SendFiveMessages()
+        private static void SendFiveMessages()
         {
             for (int i = 0; i < 5; i++)
-                UIManager.Instance.PopUpMessage("message " + i);
+                UIManager.Instance.PopUpMessage($"message {i.ToString()}");
         }
     }
 }

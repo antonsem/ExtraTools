@@ -5,8 +5,8 @@ public class TestGetComponent : MonoBehaviour
 {
     public BoxCollider col;
 
-    void Start()
+    private void Start()
     {
-        transform.GetComponent(out col, true, true, true);
+        transform.EnsureComponent(out col, true, true);
     }
 }

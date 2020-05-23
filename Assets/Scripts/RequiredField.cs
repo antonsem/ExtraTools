@@ -1,11 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 
 namespace ExtraTools
 {
-
     public enum FieldColor
     {
         Red,
@@ -21,6 +17,7 @@ namespace ExtraTools
     public class RequiredField : PropertyAttribute
     {
         public Color color;
+        public bool debugError = true;
 
         public RequiredField(FieldColor _color = FieldColor.Red)
         {

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Projects\Unity20\ExtraTools" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="Editor" t="Include">
+            <e p="ReadOnlyDrawer.cs" t="Include" />
+            <e p="RequiredFieldDrawer.cs" t="Include" />
+          </e>
+          <e p="PopUp.cs" t="Include" />
+          <e p="ReadOnlyAttribute.cs" t="Include" />
+          <e p="RequiredField.cs" t="Include" />
+          <e p="ResourceManager.cs" t="Include" />
+          <e p="Singleton.cs" t="Include" />
+          <e p="Utils.cs" t="Include" />
+        </e>
+        <e p="Test" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="HighlightTest.cs" t="Include" />
+            <e p="ReadOnlyTest.cs" t="Include" />
+            <e p="TestGetComponent.cs" t="Include" />
+            <e p="TestResource.cs" t="Include" />
+            <e p="TestResourceManager.cs" t="Include" />
+            <e p="UI" t="Include">
+              <e p="InGame.cs" t="Include" />
+              <e p="MainMenu.cs" t="Include" />
+              <e p="Pause.cs" t="Include" />
+              <e p="UIManager.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="ExtraTools.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\semch\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\semch\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_ExtraTools.2005016394.00" t="ExcludeRecursive" />
+  </component>
+</project>

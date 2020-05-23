@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿using UnityEditor;
+using UnityEngine;
 
 namespace ExtraTools
 {
@@ -13,16 +13,18 @@ namespace ExtraTools
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             RequiredField field = attribute as RequiredField;
-
-            if(property.objectReferenceValue == null)
+            
+            if (property.objectReferenceValue == null)
             {
+                if (field.debugError)
+                    Debug.LogErrorFormat(property.serializedObject.targetObject, "Required field <color=red>{0}</color> is not assigned on <color=blue>{1}</color>!", label.text, property.serializedObject.targetObject);
+
                 GUI.color = field.color;
                 EditorGUI.PropertyField(position, property, label);
                 GUI.color = Color.white;
             }
             else
                 EditorGUI.PropertyField(position, property, label);
-
         }
     }
 }

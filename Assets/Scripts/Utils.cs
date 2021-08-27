@@ -21,7 +21,8 @@ namespace ExtraTools
         /// <param name="addedMessage">Should a message be displayed if the component is added</param>
         /// </summary>
         /// <returns>True if the component is set, false otherwise</returns>
-        public static bool EnsureComponent<T>(this Transform t, out T component, bool needWarning = false, bool addedMessage = false) where T : Component
+        public static bool EnsureComponent<T>(this Transform t, out T component, bool needWarning = false,
+            bool addedMessage = false) where T : Component
         {
             if (t.TryGetComponent(out component)) return component;
             if (needWarning)
@@ -33,6 +34,121 @@ namespace ExtraTools
 
             return component;
         }
+
+        #region Material Property Block
+
+        // For more information on material property blocks an why we need them check this
+        // fantastic article: https://thomasmountainborn.com/2016/05/25/materialpropertyblocks/
+        
+        private static MaterialPropertyBlock _materialProperty;
+        private static MaterialPropertyBlock MaterialPropertyBlock => _materialProperty ??= new MaterialPropertyBlock();
+        
+        /// <summary>
+        /// Sets a property of a material using a PropertyBlock (i.e. without create new material instances)
+        /// </summary>
+        /// <param name="renderer">Renderer to set the property of</param>
+        /// <param name="propertyHash">Hash of the property</param>
+        /// <param name="value">New value of the property</param>
+        /// <param name="materialIndex">Material index on the renderer to set the property of</param>
+        public static void SetProperty(this Renderer renderer, int propertyHash, int value, int materialIndex = 0)
+        {
+            if (materialIndex >= renderer.materials.Length)
+            {
+                Debug.LogWarning(
+                    $"Renderer {renderer.name} has {renderer.materials.Length.ToString()} materials. You are trying to access {materialIndex}. material.");
+                return;
+            }
+
+            renderer.GetPropertyBlock(MaterialPropertyBlock, materialIndex);
+
+            MaterialPropertyBlock.SetInt(propertyHash, value);
+
+            renderer.SetPropertyBlock(MaterialPropertyBlock);
+        }
+
+        /// <summary>
+        /// Sets a property of a material using a PropertyBlock (i.e. without create new material instances)
+        /// </summary>
+        /// <param name="renderer">Renderer to set the property of</param>
+        /// <param name="propertyName">Name of the property</param>
+        /// <param name="value">New value of the property</param>
+        /// <param name="materialIndex">Material index on the renderer to set the property of</param>
+        public static void SetProperty(this Renderer renderer, string propertyName, int value, int materialIndex = 0)
+        {
+            renderer.SetProperty(Shader.PropertyToID(propertyName), value, materialIndex);
+        }
+
+        /// <summary>
+        /// Sets a property of a material using a PropertyBlock (i.e. without create new material instances)
+        /// </summary>
+        /// <param name="renderer">Renderer to set the property of</param>
+        /// <param name="propertyHash">Hash of the property</param>
+        /// <param name="value">New value of the property</param>
+        /// <param name="materialIndex">Material index on the renderer to set the property of</param>
+        public static void SetProperty(this Renderer renderer, int propertyHash, float value, int materialIndex = 0)
+        {
+            if (materialIndex >= renderer.materials.Length)
+            {
+                Debug.LogWarning(
+                    $"Renderer {renderer.name} has {renderer.materials.Length.ToString()} materials. You are trying to access {materialIndex}. material.");
+                return;
+            }
+
+            renderer.GetPropertyBlock(MaterialPropertyBlock, materialIndex);
+
+            MaterialPropertyBlock.SetFloat(propertyHash, value);
+
+            renderer.SetPropertyBlock(MaterialPropertyBlock);
+        }
+
+        /// <summary>
+        /// Sets a property of a material using a PropertyBlock (i.e. without create new material instances)
+        /// </summary>
+        /// <param name="renderer">Renderer to set the property of</param>
+        /// <param name="propertyName">Name of the property</param>
+        /// <param name="value">New value of the property</param>
+        /// <param name="materialIndex">Material index on the renderer to set the property of</param>
+        public static void SetProperty(this Renderer renderer, string propertyName, float value, int materialIndex = 0)
+        {
+            renderer.SetProperty(Shader.PropertyToID(propertyName), value, materialIndex);
+        }
+
+        /// <summary>
+        /// Sets a property of a material using a PropertyBlock (i.e. without create new material instances)
+        /// </summary>
+        /// <param name="renderer">Renderer to set the property of</param>
+        /// <param name="propertyHash">Hash of the property</param>
+        /// <param name="value">New value of the property</param>
+        /// <param name="materialIndex">Material index on the renderer to set the property of</param>
+        public static void SetProperty(this Renderer renderer, int propertyHash, Color value, int materialIndex = 0)
+        {
+            if (materialIndex >= renderer.materials.Length)
+            {
+                Debug.LogWarning(
+                    $"Renderer {renderer.name} has {renderer.materials.Length.ToString()} materials. You are trying to access {materialIndex}. material.");
+                return;
+            }
+
+            renderer.GetPropertyBlock(MaterialPropertyBlock, materialIndex);
+
+            MaterialPropertyBlock.SetColor(propertyHash, value);
+
+            renderer.SetPropertyBlock(MaterialPropertyBlock);
+        }
+
+        /// <summary>
+        /// Sets a property of a material using a PropertyBlock (i.e. without create new material instances)
+        /// </summary>
+        /// <param name="renderer">Renderer to set the property of</param>
+        /// <param name="propertyName">Name of the property</param>
+        /// <param name="value">New value of the property</param>
+        /// <param name="materialIndex">Material index on the renderer to set the property of</param>
+        public static void SetProperty(this Renderer renderer, string propertyName, Color value, int materialIndex = 0)
+        {
+            renderer.SetProperty(Shader.PropertyToID(propertyName), value, materialIndex);
+        }
+
+        #endregion
 
 #if UNITY_EDITOR
 
@@ -80,7 +196,8 @@ namespace ExtraTools
         {
             object obj = property.serializedObject.targetObject;
             Type type = obj.GetType();
-            FieldInfo field = type.GetField(property.propertyPath, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+            FieldInfo field = type.GetField(property.propertyPath,
+                BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
             return field?.GetValue(obj);
         }
 #endif

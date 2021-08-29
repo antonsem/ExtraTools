@@ -35,6 +35,11 @@ namespace ExtraTools
             return component;
         }
 
+        public static bool IsValid(this string str)
+        {
+            return !string.IsNullOrEmpty(str);
+        }
+        
         #region Material Property Block
 
         // For more information on material property blocks an why we need them check this

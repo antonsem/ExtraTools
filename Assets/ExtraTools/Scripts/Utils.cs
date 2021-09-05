@@ -4,7 +4,9 @@ using System.IO;
 using System.Reflection;
 using UnityEditor;
 #endif
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 //I will be adding some useful stuff I use in my projects.
 namespace ExtraTools
@@ -39,7 +41,16 @@ namespace ExtraTools
         {
             return !string.IsNullOrEmpty(str);
         }
-        
+
+        public static T GetRandom<T>(this IReadOnlyList<T> list)
+        {
+            if (list != null && list.Count != 0)
+                return list[Random.Range(0, list.Count)];
+            
+            Debug.LogError("List doesn't have any items. Returning default");
+            return default;
+        }
+
         #region Material Property Block
 
         // For more information on material property blocks an why we need them check this

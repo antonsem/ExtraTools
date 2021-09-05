@@ -37,11 +37,19 @@ namespace ExtraTools
             return component;
         }
 
+        /// <summary>
+        /// Checks if the string is null or empty
+        /// </summary>
+        /// <returns>True if the string is not null or empty</returns>
         public static bool IsValid(this string str)
         {
             return !string.IsNullOrEmpty(str);
         }
 
+        /// <summary>
+        /// Gets a random item from a list or an array
+        /// </summary>
+        /// <returns>Random item if any items exist. Default value of the type otherwise.</returns>
         public static T GetRandom<T>(this IReadOnlyList<T> list)
         {
             if (list != null && list.Count != 0)

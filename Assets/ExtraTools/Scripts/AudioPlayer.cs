@@ -115,13 +115,13 @@ namespace ExtraTools
         /// <param name="clip">Clip to play</param>
         /// <param name="minPitch">Minimum pitch</param>
         /// <param name="maxPitch">Maximum pitch</param>
-        public static void PlayOneShot(AudioClip clip, float minPitch = 0, float maxPitch = 0)
+        public static void PlayOneShot(AudioClip clip, float minPitch = 1, float maxPitch = 1)
         {
             for (int i = 0; i < _sources.Count; i++)
             {
                 if (_sources[i].isPlaying) continue;
 
-                _sources[i].pitch = Random.Range(1 - minPitch, 1 + maxPitch);
+                _sources[i].pitch = Random.Range(minPitch, maxPitch);
                 _sources[i].PlayOneShot(clip);
                 return;
             }
@@ -129,7 +129,7 @@ namespace ExtraTools
             AudioSource source = _thisObject.AddComponent<AudioSource>();
             source.outputAudioMixerGroup = _sfxMixer;
             source.loop = false;
-            source.pitch = Random.Range(1 - minPitch, 1 + maxPitch);
+            source.pitch = Random.Range(minPitch, maxPitch);
             source.PlayOneShot(clip);
             _sources.Add(source);
         }

@@ -46,6 +46,11 @@ namespace ExtraTools
             return !string.IsNullOrEmpty(str);
         }
 
+        public static string Format(this string str, params object[] parameters)
+        {
+            return string.Format(str, parameters);
+        }
+
         /// <summary>
         /// Gets a random item from a list or an array
         /// </summary>

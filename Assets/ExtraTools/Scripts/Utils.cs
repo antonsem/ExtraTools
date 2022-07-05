@@ -46,6 +46,12 @@ namespace ExtraTools
             return !string.IsNullOrEmpty(str);
         }
 
+        /// <summary>
+        /// A shortcut for string.Format(string, params object[])
+        /// </summary>
+        /// <param name="str">String to format</param>
+        /// <param name="parameters">Parameters to insert into the string</param>
+        /// <returns>string.Format(str, parameters)</returns>
         public static string Format(this string str, params object[] parameters)
         {
             return string.Format(str, parameters);

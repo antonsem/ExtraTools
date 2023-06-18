@@ -1,20 +1,28 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace ExtraTools
+namespace ExtraTools.Editor
 {
-    [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
-    public class ReadOnlyDrawer : PropertyDrawer
-    {
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-        {
-            ReadOnlyAttribute att = (ReadOnlyAttribute)attribute;
-            object val = property.GetValue();
+	[CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
+	public class ReadOnlyDrawer : PropertyDrawer
+	{
+		private const string NULL_ERROR =
+			"Read Only field <color=red>{0}</color> is not assigned on <color=blue>{1}</color>!";
 
-            if (att.warningIfNull && (val == null || val.ToString().Equals("null")))
-                val += " <-This value should NOT be NULL!";
+		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+		{
+			var att = attribute as ReadOnlyAttribute;
 
-            EditorGUI.LabelField(position, string.Format("{0}: {1}", label.text, val));
-        }
-    }
+			if (att.errorIfNull && property.GetValue().Equals(null))
+			{
+				Debug.LogErrorFormat(property.serializedObject.targetObject, NULL_ERROR, label.text,
+					property.serializedObject.targetObject);
+			}
+
+			var previousGUIState = GUI.enabled;
+			GUI.enabled = false;
+			EditorGUI.PropertyField(position, property, label);
+			GUI.enabled = previousGUIState;
+		}
+	}
 }

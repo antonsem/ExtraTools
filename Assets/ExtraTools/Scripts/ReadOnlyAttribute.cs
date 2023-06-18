@@ -2,16 +2,21 @@
 
 namespace ExtraTools
 {
-    public class ReadOnlyAttribute : PropertyAttribute
-    {
-        /// <summary>
-        /// Writes a warning if the value of this field is null
-        /// </summary>
-        public readonly bool warningIfNull = false;
+	public class ReadOnlyAttribute : PropertyAttribute
+	{
+		/// <summary>
+		/// Writes a warning if the value of this field is null
+		/// </summary>
+		public readonly bool errorIfNull;
 
-        public ReadOnlyAttribute(bool _warningIfNull = false)
-        {
-            warningIfNull = _warningIfNull;
-        }
-    }
+		public ReadOnlyAttribute()
+		{
+			errorIfNull = true;
+		}
+
+		public ReadOnlyAttribute(bool errorIfNull)
+		{
+			this.errorIfNull = errorIfNull;
+		}
+	}
 }

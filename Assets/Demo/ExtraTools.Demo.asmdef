@@ -1,0 +1,17 @@
+{
+    "name": "ExtraTools.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:55acc4e34e3ae1d43bde89a2d1bd22ef",
+        "GUID:b55930dca592c904685b0bc9efbf80aa"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

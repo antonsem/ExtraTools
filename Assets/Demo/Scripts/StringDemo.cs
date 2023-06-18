@@ -2,7 +2,7 @@
 
 namespace ExtraTools
 {
-	public class StringTest : MonoBehaviour
+	public class StringDemo : MonoBehaviour
 	{
 		[Header("Empty string")]
 		[SerializeField] private string testString;

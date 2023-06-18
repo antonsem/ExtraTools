@@ -106,9 +106,9 @@ namespace ExtraTools
 			//Set the message text
 			message.text = msg.message;
 
-			for (int i = 0; i < msg.buttons.Length; i++)
+			for (var i = 0; i < msg.buttons.Length; i++)
 			{
-				Button newBtn = GetButton(buttonsParent);
+				var newBtn = GetButton(buttonsParent);
 				newBtn.onClick.AddListener(msg.buttons[i].callback.Invoke);
 				newBtn.GetComponentInChildren<Text>().text = msg.buttons[i].label;
 			}
@@ -119,7 +119,7 @@ namespace ExtraTools
 		/// </summary>
 		private void ClearButtons()
 		{
-			for (int i = 0; i < _buttons.Count; i++)
+			for (var i = 0; i < _buttons.Count; i++)
 			{
 				if (!_buttons[i].gameObject.activeSelf) continue;
 				_buttons[i].onClick.RemoveAllListeners();
@@ -135,7 +135,7 @@ namespace ExtraTools
 		/// <returns>A button</returns>
 		private Button GetButton(Transform bParent)
 		{
-			for (int i = 0; i < _buttons.Count; i++)
+			for (var i = 0; i < _buttons.Count; i++)
 			{
 				if (_buttons[i].gameObject.activeSelf) continue;
 				_buttons[i].onClick.RemoveAllListeners();
@@ -144,7 +144,7 @@ namespace ExtraTools
 				return _buttons[i];
 			}
 
-			Button newButton = Instantiate(buttonPrefab, bParent).GetComponent<Button>();
+			var newButton = Instantiate(buttonPrefab, bParent).GetComponent<Button>();
 			newButton.onClick.AddListener(CheckMessages);
 			_buttons.Add(newButton);
 			return _buttons[_buttons.Count - 1];
@@ -180,11 +180,11 @@ namespace ExtraTools
 		/// </summary>
 		public void SetMaxSortOrder()
 		{
-			Canvas[] canvases = FindObjectsOfType<Canvas>(true);
+			var canvases = FindObjectsOfType<Canvas>(true);
 			canvas.overrideSorting = true;
-			int maxOrder = canvas.sortingOrder;
+			var maxOrder = canvas.sortingOrder;
 
-			foreach (Canvas c in canvases)
+			foreach (var c in canvases)
 			{
 				if (c.sortingOrder >= maxOrder)
 				{
